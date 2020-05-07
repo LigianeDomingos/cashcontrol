@@ -6,7 +6,7 @@ var logger = require('morgan');
 var methodOverride = require('method-override');
 var session = require('express-session');
 
-var PizzasRouter = require('./routes/PizzasRouter');
+//var PizzasRouter = require('./routes/PizzasRouter');
 //var PedidosRouter = require('./routes/PedidosRouter');
 var LoginRouter = require('./routes/LoginRouter');
 var UserRouter = require('./routes/UserRouter');
@@ -14,6 +14,8 @@ var CarteiraRouter = require('./routes/CarteirasRouter');
 var CategoriaRouter = require('./routes/CategoriasRouter');
 var DespesaRouter = require('./routes/DespesasRouter');
 var MetaRouter = require('./routes/MetasRouter');
+var CadastroRouter = require('./routes/CadastroRouter'); // add for Ligiane
+var IndexRouter = require('./routes/Index.Router'); // add for Ligiane
 
 require('./database/index');
 
@@ -31,7 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride("_method"));
 app.use(session({secret: "NOSSA-MENSAGEM-SECRETA"}));
 
-app.use('/', PizzasRouter);
+//app.use('/', PizzasRouter);
 //app.use('/', PedidosRouter);
 app.use('/', LoginRouter);
 app.use('/', UserRouter);
@@ -39,6 +41,8 @@ app.use('/', CarteiraRouter);
 app.use('/', CategoriaRouter);
 app.use('/', DespesaRouter);
 app.use('/', MetaRouter);
+app.use('/', IndexRouter); // addn ligiane
+app.use('/', CadastroRouter); //addn ligiane
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

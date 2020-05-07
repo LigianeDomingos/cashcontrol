@@ -1,19 +1,31 @@
-const pizzas = require('../database/Pizzas.json');
 const fs = require('fs');
 
 module.exports = {
-	index: (req, res)=>{
-		res.render("index",{pizzas});
+	cadastro: (req, res)=>{
+		res.render('cadastro');
+	},
+
+}
+
+
+
+	/*
+	const pizzas = require('../database/Pizzas.json');
+const fs = require('fs');
+
+	module.exports = {
+		cadastro: (req, res)=>{
+		res.render("cadastro",{pizzas});
 	},
 	show: (req, res) => {
 
 		// Capturando a pizza com o id passado na rota
-		let pizza = pizzas.find(
-			pizza => pizza.id == req.params.id
+		let cadastro = cadastros.find(
+			cadastro => pizza.id == req.params.id
 		);
 
 		// Capturando a posição da pizza no array
-		let pos = pizzas.indexOf(pizza);
+		let pos = pizzas.cadastroOf(pizza);
 
 		// determinando o id da próxima pizza e da anterior
 		let idPrev = null;
@@ -44,7 +56,7 @@ module.exports = {
 			}
 		});
 		console.log(pizzaBusca)
-		return res.render("index", {pizzas:pizzaBusca});
+		return res.render("cadastro", {pizzas:pizzaBusca});
 		
 	},
 	create: (req, res) => {
@@ -94,11 +106,11 @@ module.exports = {
 	edit: (req, res) =>{
 		const id = req.params.id;
 
-		const index = pizzas.findIndex(
+		const cadastro = pizzas.findIndex(
 			pizza => pizza.id==id
 		);
 
-		res.render('crud-pizzas/edit', {pizza: pizzas[index]});
+		res.render('crud-pizzas/edit', {pizza: pizzas[cadastro]});
 	},
 	update: (req, res) => {
 		let {id} = req.params;
@@ -130,4 +142,4 @@ module.exports = {
 		fs.writeFileSync('database/Pizzas.json', JSON.stringify(pizzas));
 		res.redirect('/');
 	}
-}	
+*/
